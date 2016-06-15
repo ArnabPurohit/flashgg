@@ -116,10 +116,12 @@ class JobConfig(object):
         from SimGeneral.MixingModule.mix_2015_50ns_Startup_PoissonOOTPU_cfi import mix as mix_2015_50ns
         self.pu_distribs = { "74X_mcRun2_asymptotic_v2" : mix_2015_25ns.input.nbPileupEvents }
         try:
-            from SimGeneral.MixingModule.mix_2015_25ns_FallMC_matchData_PoissonOOTPU_cfi import mix as mix_2015_76_25ns
-            self.pu_distribs["PU25nsData2015v1"] = mix_2015_76_25ns.input.nbPileupEvents
+#            from SimGeneral.MixingModule.mix_2015_25ns_FallMC_matchData_PoissonOOTPU_cfi import mix as mix_2015_76_25ns
+#            self.pu_distribs["PU25nsData2015v1"] = mix_2015_76_25ns.input.nbPileupEvents
+            from SimGeneral.MixingModule.mix_2016_25ns_SpringMC_PUScenarioV1_PoissonOOTPU_cfi import mix as mix_2016_25ns
+            self.pu_distribs["80X_mcRun2_asymptotic_2016_v3"] = mix_2016_25ns.input.nbPileupEvents
         except Exception:
-            print "Failed to load 76X mixing, this is expected in 74X!"
+            print "Failed to load 80X mixing"
 
     def __getattr__(self,name):
         ## did not manage to inherit from VarParsing, because of some issues in __init__
