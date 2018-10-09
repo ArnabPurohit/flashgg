@@ -1,0 +1,16 @@
+{
+    "processes" : {
+        "data_single" : [ 
+		      	"/EGamma/spigazzi-RunIIFall18-4_0_0-prod-uAOD-300-93-g37ed35fa-v0-Run2018C-PromptReco-v3-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-prod-uAOD-300-93-g37ed35fa-v0-Run2018C-PromptReco-v2-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-prod-uAOD-300-93-g37ed35fa-v0-Run2018C-PromptReco-v1-0c1d2f61bc2c0c42751377864325047f/USER",	
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-RunIIFall18-4_0_0-3-g040ebcb0-v0-Run2018A-PromptReco-v1-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-RunIIFall18-4_0_0-3-g040ebcb0-v0-Run2018A-PromptReco-v2-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-RunIIFall18-4_0_0-3-g040ebcb0-v0-Run2018A-PromptReco-v3-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-RunIIFall18-4_0_0-3-g040ebcb0-v0-Run2018B-PromptReco-v1-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-RunIIFall18-4_0_0-3-g040ebcb0-v0-Run2018B-PromptReco-v2-0c1d2f61bc2c0c42751377864325047f/USER",
+			"/EGamma/spigazzi-RunIIFall18-4_0_0-prod-uAOD-300-93-g37ed35fa-v0-Run2018D-PromptReco-v2-0c1d2f61bc2c0c42751377864325047f/USER"
+					]
+     },
+     "cmdLine" : "campaign=RunIIFall18-4_0_0 lumiMask=/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/PromptReco/Cert_314472-322381_13TeV_PromptReco_Collisions18_JSON.txt"
+}

@@ -2,7 +2,7 @@ import FWCore.ParameterSet.VarParsing as VarParsing
 from flashgg.MetaData.samples_utils import SamplesManager
 import FWCore.ParameterSet.Config as cms
 
-
+print 'Arnab'
 class JobConfig(object):
     
     def __init__(self,*args,**kwargs):
@@ -217,8 +217,12 @@ class JobConfig(object):
                     ## sys.exit(0)
             else:
                 sys.exit(1)
-            
+        print 'Piyali'
+        print self.dumpPython
+        print "Ogo"
         files = self.inputFiles
+        print files
+        print self.dataset
         if self.dataset and self.dataset != "":
             dsetname,xsec,totEvents,files,maxEvents,sp_unused = self.dataset
             if type(xsec) == float or xsec == None:
@@ -227,7 +231,7 @@ class JobConfig(object):
                 print
                 
             self.maxEvents = int(maxEvents)
-            
+            print files
             putarget = None
             samplepu = None
             if self.puTarget != "":
@@ -259,12 +263,16 @@ class JobConfig(object):
                     if hasattr(obj, "sampleIndex"):
                         obj.sampleIndex = xsec["itype"]
 
-            
+
             isdata = self.processType == "data"
             if isdata or self.targetLumi > 0. or putarget:
                 ## look for analyzers which have lumiWeight as attribute
+                print 'Sayang'
+                print 'Abar'
                 for name,obj in process.__dict__.iteritems():
-                    
+                    print 'Sayangdwuti'
+                    print name
+                    print obj
                     if hasattr(obj,"lumiWeight"):
                         if  isdata:
                             obj.lumiWeight = 1.
@@ -328,19 +336,27 @@ class JobConfig(object):
                         
                     
             for name,obj in process.__dict__.iteritems():
+                print "processId"
+                print name
                 if hasattr(obj,"processId"):
                     obj.processId = str(processId)
+                    print str(processId)
 
             for name,obj in process.__dict__.iteritems():
+                print "processIndex"
+                print name
                 if hasattr(obj,"processIndex"):
                     obj.processIndex = int(self.processIndex)
-                    
+                    print int(self.processIndex)
+
             lumisToSkip = None
             if isdata:
+                print "lumisToSkip"
                 lumisToSkip = self.samplesMan.getLumisToSkip(dsetname)
                 process.source.lumisToSkip = lumisToSkip.getVLuminosityBlockRange()
-
+                process.source.lumisToSkip = [ str(x) for x in process.source.lumisToSkip ]
             if isdata and self.lumiMask != "":
+                print 'lumisToSkip'
                 if isFwlite:
                     sys.exit("Lumi mask not supported in FWlite",-1)
 
@@ -349,18 +365,23 @@ class JobConfig(object):
                 if lumisToSkip: 
                     target = target.__sub__(lumisToSkip)                    
                 process.source.lumisToProcess = target.getVLuminosityBlockRange()
+                process.source.lumisToProcess = [ str(x) for x in process.source.lumisToProcess ]
 
             if isdata:    
+                print 'lumisToProcess'
                 print process.source.lumisToProcess
             
         flist = []
         for f in files:
+            print 'files'
+            print f
             if len(f.split(":",1))>1:
                 flist.append(str(f))
             else:
                 flist.append(str("%s%s" % (self.filePrepend,f)))
         if len(flist) > 0:
             ## fwlite
+            print 'flist'
             if isFwlite:
                 ## process.fwliteInput.fileNames.extend([ str("%s%s" % (self.filePrepend,f)) for f in  files])
                 process.fwliteInput.fileNames = flist
@@ -371,12 +392,14 @@ class JobConfig(object):
  
         ## fwlite
         if isFwlite:
+            print 'process.fwliteInput.maxEvents'
             process.fwliteInput.maxEvents = self.maxEvents
+            print self.maxEvents
             process.fwliteOutput.fileName = self.outputFile
         ## full framework
         else:
             process.maxEvents.input = self.maxEvents
-            
+            print self.maxEvents
             if hasOutput:
                 process.out.fileName = self.outputFile
 
@@ -389,11 +412,14 @@ class JobConfig(object):
                 sys.exit(-1)
             name,attr = self.tfileOut
             setattr( getattr( process, name ), attr, tfile )
-            
-
+        print 'Poots'
+        #if self.dumpPython != "" and hasattr(process, 'dumpPython'):
         if self.dumpPython != "":
             from gzip import open
+            print type(self.dumpPython)
             pyout = open("%s.gz" % self.dumpPython,"w+")
+            print 'Stoop'
+            print process.dumpPython()
             pyout.write( process.dumpPython() )
             pyout.close()
 
