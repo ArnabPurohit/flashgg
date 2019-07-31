@@ -400,7 +400,7 @@ class HTCondorJob(object):
             fout.write('output      = '+self.jobName+'.out\n')
             fout.write('error       = '+self.jobName+'.err\n')
             fout.write('log         = '+self.jobName+'_htc.log\n\n')
-            fout.write('max_retries = 1\n')
+            fout.write('max_retries = 5\n')
             fout.write('queue 1\n')
             fout.close()        
 

@@ -1,6 +1,7 @@
 <use   name="DataFormats/Candidate"/>
 <use   name="DataFormats/PatCandidates"/>
 <use   name="DataFormats/Common"/>
+<use   name="RecoEgamma/PhotonIdentification"/>
 <use   name="flashgg/DataFormats"/>
 <use   name="flashgg/Taggers"/>
 <use   name="DataFormats/VertexReco"/>

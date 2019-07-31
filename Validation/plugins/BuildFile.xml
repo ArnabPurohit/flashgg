@@ -2,6 +2,7 @@
 <use name="FWCore/Common"/>
 <use name="DataFormats/Common"/>
 <use name="PhysicsTools/UtilAlgos"/>
+<use name="EgammaAnalysis/TnPTreeProducer"/>
 <use name="FWCore/ServiceRegistry"/>
 <use name="FWCore/PluginManager"/>
 <use name="FWCore/ParameterSet"/>
@@ -14,5 +15,4 @@
 <use name="RecoJets/JetProducers"/>
 <use name="HLTrigger/HLTcore"/>
 <use name="flashgg/Taggers"/>
-<flags SKIP_FILES="FlashggSelectorByValueMap.cc FlashggTriggerCandProducer.cc FlashggL1CandProducer.cc"/>
 <flags EDM_PLUGIN="1"/>
